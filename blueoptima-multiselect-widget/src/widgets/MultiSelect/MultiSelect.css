@@ -1,0 +1,31 @@
+.option-container{
+    align-items: center;
+}
+.options-card{
+    display: flex;
+	padding-left: 5%;
+	padding-top: 2%;
+}
+.regular-checkbox {
+	-webkit-appearance: none;
+	background-color: #fdfdfd;
+	border: 1px solid #000505;
+	padding: 8px;
+	display: inline-block;
+	position: relative;
+}
+
+.regular-checkbox:checked:after {
+	content: '\2714';
+	font-size: 12px;
+	position: absolute;
+	top: 1px;
+	left: 3px;
+	color: #56adf0;
+}
+
+
+.option-item{
+	padding-left: 2%;
+	text-align: center;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TextField from './TextField';
+import './MultiSelect.css';
+import TextField from '../TextField/TextField';
 const DropDown = (props) => {
     const [selectedOption, setSelectedOption] = useState(props.selected ? props.selected : null);
     const [filterVal, setFilterVal] = useState("");
@@ -42,14 +43,26 @@ const DropDown = (props) => {
             placeholder={props.placeholder}
             inputRef={props.ref}
         />
-        <div className="options-card" style={props.optionCardStyles}>
+    
+        <div className="option-container">
+        <div className="text-primary label-text"> <span className="close"></span> Clear All</div>
             {props.option
                 .filter((option) => option.toUpperCase().indexOf(filterVal.toUpperCase()) > -1)
                 .map((option, index) => {
                     return (
-                        <p key={index} onClick={() => onSelect(option)}>
+                        <div className="options-card">
+                            <div>
+                        <input
+                        type="checkbox"
+                        className="regular-checkbox"
+                        checked={selectedOption === option}
+                        onChange={() => null}
+                      />
+                      </div>
+                        <div className="option-item" key={index} onClick={() => onSelect(option)}>
                             {option}
-                        </p>
+                        </div>
+                        </div>
                     );
                 })}
         </div>
